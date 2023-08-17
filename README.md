@@ -21,3 +21,32 @@ SetCrafter AI is a tentative project designed to revolutionize the way DJs organ
 ### Installation
 
 1. Clone the repository:
+2. Navigate to the project directory and install the required packages:
+3. Configure the Spotify API credentials in the configuration file.
+
+### Usage
+
+Run the main script to start categorizing and curating your DJ library:
+## Contribution
+
+We welcome contributions to SetCrafter AI. Please read the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines on how to contribute.
+
+## Alternative Solutions
+
+- Deep learning models could be explored instead of nearest-neighbor techniques for more sophisticated classification.
+- Collaborations with music experts for labeling the training data might increase accuracy.
+
+## License
+
+SetCrafter AI is licensed under the MIT License. See the [LICENSE.md](LICENSE.md) file for details.
+
+## Contact
+
+For any inquiries or feedback, please reach out to [username@email.com](mailto:username@email.com).
+
+## Acknowledgments
+
+Special thanks to the music community for inspiring this innovative approach to DJ library organization.
+
+
+
