@@ -8,5 +8,4 @@ class SpotifyIntegration:
         self.sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
     def get_track_features(self, track_id):
-        # TODO: Implement the method to get track features from Spotify
-        pass
+        return self.sp.audio_features(track_id)[0]
