@@ -4,6 +4,7 @@ from data_preprocessor import DataPreprocessor
 from spotify_data_downloader import SpotifyDataDownloader
 from track_categorizer import TrackCategorizer
 from set_curator import SetCurator
+from spotify_integration import SpotifyIntegration
 
 
 def main():
@@ -17,7 +18,8 @@ def main():
         # Instantiate the necessary classes
         extractor = DJLibraryDataExtractor()
         preprocessor = DataPreprocessor()
-        downloader = SpotifyDataDownloader()
+        # TODO: Replace with actual Spotify credentials
+        downloader = SpotifyDataDownloader(client_id='your_client_id', client_secret='your_client_secret')
         categorizer = TrackCategorizer()
 
         # Example steps for the categorization process
@@ -33,7 +35,10 @@ def main():
     if st.button('Curate Set'):
         st.write('Set curation process will start.')
         curator = SetCurator()
-        # TODO: Implement set curation process
+        # Example steps for the set curation process
+        categorized_tracks = []  # Placeholder for categorized tracks
+        curated_set = curator.curate_set(categorized_tracks)
+        st.write('Set curation complete!')
 
 if __name__ == '__main__':
     main()
