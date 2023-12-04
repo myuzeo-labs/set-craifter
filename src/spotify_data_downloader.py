@@ -16,5 +16,5 @@ class SpotifyDataDownloader:
                 track_features = self.sp.audio_features(track_id)[0]
                 track_data.append({**track_info, **track_features})
             except spotipy.exceptions.SpotifyException as e:
-                print(f'Error downloading data for track ID {track_id}: {e}')
+                raise Exception(f'Failed to download data for track ID {track_id}: {e}')
         return track_data
