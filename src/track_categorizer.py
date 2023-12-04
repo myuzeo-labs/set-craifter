@@ -1,6 +1,7 @@
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import accuracy_score
 import pandas as pd
 from typing import List, Dict
 
@@ -18,7 +19,10 @@ class TrackCategorizer:
         X_test_scaled = self.scaler.transform(X_test)
         # Train the KNN model
         self.model.fit(X_train_scaled, y_train)
-        # Placeholder for model evaluation (e.g., accuracy score)
+        # Evaluate the model using accuracy score
+        y_pred = self.model.predict(X_test_scaled)
+        accuracy = accuracy_score(y_test, y_pred)
+        print(f'Model accuracy: {accuracy:.2f}')
 
     def categorize_tracks(self, track_data: List[Dict[str, any]]) -> List[str]:
         # Convert track data to a DataFrame

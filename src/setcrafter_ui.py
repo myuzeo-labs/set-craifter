@@ -13,13 +13,15 @@ def main():
     st.header('Welcome to SetCrafter AI')
     st.write('This tool assists DJs in organizing and curating their music libraries with the help of AI.')
 
+    # Load Spotify credentials securely
+    spotify_credentials = st.secrets['spotify']
+    downloader = SpotifyDataDownloader(client_id=spotify_credentials['client_id'], client_secret=spotify_credentials['client_secret'])
+
     if st.button('Start Categorizing'):
         st.write('Categorization process will start.')
         # Instantiate the necessary classes
         extractor = DJLibraryDataExtractor()
         preprocessor = DataPreprocessor()
-        # TODO: Replace with actual Spotify credentials
-        downloader = SpotifyDataDownloader(client_id='your_client_id', client_secret='your_client_secret')
         categorizer = TrackCategorizer()
 
         # Example steps for the categorization process
