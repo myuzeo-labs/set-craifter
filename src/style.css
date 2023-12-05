@@ -1,0 +1,54 @@
+/* Add custom styles for Streamlit UI here */
+
+/* Sidebar styles */
+.sidebar .sidebar-content {
+    background-color: #f1f3f6;
+    border-right: 1px solid #e0e0e0;
+}
+
+/* Main content area styles */
+.main .block-container {
+    padding: 2rem;
+    background-color: #ffffff;
+}
+
+/* Header styles */
+.stMarkdown > h1 {
+    font-size: 2rem;
+    color: #0b5ed7;
+    margin-bottom: 1rem;
+}
+
+/* Button styles */
+.stButton > button {
+    background-color: #0b5ed7;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.stButton > button:hover {
+    background-color: #0a4ec1;
+}
+
+/* Input and select box styles */
+.stTextInput, .stSelectbox {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+/* Radio button styles */
+.stRadio > label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #495057;
+}
+
+/* Progress bar styles */
+.stProgress > div {
+    background-color: #0b5ed7;
+}
