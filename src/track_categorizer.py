@@ -8,8 +8,8 @@ from typing import List, Dict
 
 class TrackCategorizer:
     def __init__(self):
-        self.model = KNeighborsClassifier(n_neighbors=5)
-        self.scaler = StandardScaler()
+        self.model = joblib.load('model.joblib')
+        self.scaler = joblib.load('scaler.joblib')
 
     def train_model(self, features: pd.DataFrame, target: pd.Series):
         # Split the data into training and testing sets

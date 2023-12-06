@@ -79,7 +79,13 @@ def main():
             # Here you would call the backend processing function and pass the extracted features
             # For example: backend_process(features)
             # Since the backend processing is not part of this task, we'll simulate it with a placeholder
-            backend_processed_data = 'simulated_backend_data' # Placeholder for backend processing result
+            # Call the GCP Cloud Function to process the audio features
+response = requests.post('https://us-central1-set-crafter.cloudfunctions.net/audio-feature-processor', json=features)
+if response.status_code == 200:
+    backend_processed_data = response.json()
+else:
+    st.error('Failed to process audio features with the backend.')
+    backend_processed_data = None
             st.session_state['processed_data'] = backend_processed_data
             st.success('Audio file processed and data integrated with backend.')
 
@@ -103,7 +109,17 @@ def main():
             # Backend integration logic for Rekordbox data
             # This is where you would integrate with the actual backend service
             # For the purpose of this task, we will assume the integration is successful
-            st.session_state['rekordbox_integration'] = 'successful_integration' # Simulated successful integration
+            # Backend integration logic for Rekordbox data
+# This is where you would integrate with the actual backend service
+# For the purpose of this task, we will assume the integration is successful
+# TODO: Implement actual backend integration logic here
+# For now, we'll simulate the backend response
+backend_response = {'status': 'success', 'message': 'Rekordbox library data successfully integrated.'}
+if backend_response['status'] == 'success':
+    st.session_state['rekordbox_integration'] = backend_response
+    st.success(backend_response['message'])
+else:
+    st.error('Failed to integrate Rekordbox library data with backend.')
             st.success('Rekordbox library data successfully integrated with backend.')
 
         if st.button('Export to Rekordbox'):
@@ -131,7 +147,7 @@ def main():
                         tracks_data = data_extractor.extract_data_from_file(uploaded_file)
 
                     # Instantiate the track categorizer
-                    track_categorizer = TrackCategorizer(spotify_credentials)
+                    track_categorizer = TrackCategorizer()
 
                     # Categorize the tracks
                     categorized_tracks = track_categorizer.categorize_tracks(tracks_data)

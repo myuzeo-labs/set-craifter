@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "set-crafter",
+  "private_key_id": "7146709f91cd4194cc6b0ca7b8cf509273be74a4",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC0cCKncyN7Xuap\nk27E3ShzJYxLImG9MrPap9qHQtaWQlkl89FV92zeSgRR84Nr4EZs6njBdDsxC28C\nk4OvW/45URk6KbjHHR7yZPZH9EdY7KTXjBr7o48/Yx6r0SRTvbeW2g1bQiOy5Sum\nFYvxdBsEvvr+26bnsb4XIdG6NJiTCC9f51XooTRhOAuiiKvHl09lCHYicavN0Apy\nI6yPxn0iv/LInZnA2aEcdDtl2Ma2zf+VVBe7S5eSymOt2HHBTk6KnjdNFNEZlPXe\nb7Izr5wJvnKn0izo1ucouoWg84x7IQJtlzzrA/tDkbKbJGYlx1S4qrkePTuU1WdV\nIyzlT/GBAgMBAAECggEAJbC0tGibFUaeBPb8cNfHfsHtm7YrV2NzaS2duppOC6YB\nTCmxZPUhgw9P9rRYk9yNqWuS3MoEITsDrbSVkbg0EtHrZJhZdhIRqE1Jmn8etib8\nSeAEtOKV5gY03mv53BopcrPKjXDz1wcCxpcCm+WGTUf9UuYb55Lbo6ZXUj9xTWjS\nyvpjw0P55N12veQnah5TNxER2OJBA/PfjxTGjbeu4Hvs8NYpnYuQ6OMx7cOJVvYw\nclKZGBrQuUucr+Xfa1R+yCTi1BfZ/IeBkweV6zs7FP9UD/FiDEp7Q5Y6N/Hdv0jj\nRzJdzt8BhSeRDDnWh19x6xtwssGLF1cdMPK1CO23xwKBgQDl0d9/fAbcOViCw3Ld\nfOf3bt7Crhi8GFbb9MctsBuhmkI24dLZsiXQomW9TvY+t6FvAcSuJUhTXwM7A1sk\nEXcwrt3+Ofap6+kw85vv8nq5l75wFLO9hmvozzvGdz34GtpjEFhI/fs6hFhJcyjv\nUl8HYCQHWZdHLyk0Ca+CCR3zxwKBgQDI/ioe0fbcpslamY8NzYJHUfetygMowpgE\nuRpgqcl1h0K3e7rbEP1kZfhpJUju29RkzsijLfvYdRxxUSzIXhL5h7eaQITmuFqP\nfUlGAyMOoVeJVaH+NyA1mU0ejP9xXbFTgRUoPtCWjkPLiw85zWCEbVLepUYSJtqd\nROPOGT9gdwKBgDCtQDJnWaiheM7RiO3Cu/sbf5EqgNCuMw+Ji/pwV5nl62pmcFtt\nsTa8fuIW7G8iQ84YSMk92lDWSf/g2RgNnvovv5NOQaGB9zVIE9pBuJ7AtjRVHjDh\nXM/FvPpvXS/EuEbNOnXTXbfqOizseFogT0JnqZno7vLD2W1NM+BOAAsXAoGACAam\nNe7adbsvRS/ml32CW0i5pDXx5FnI6j9d/0goZEoPbvZA4uiNxcmQnto/TFJ468Ga\nH3IBoYYjqZ69NA8VoOM7gKxc4j2wWBR/rY0IhFgK/8/slRMsdRd3DeZBeQxtvVDl\nQGMpvylVKbaW2A8McJ1Q9tUQtD7a8fbDRgKaFkcCgYEAh21PNlFBW8tSxM6zQg1p\nIcJNmWXYKyR2AWDOK1R7MnLjsqxdq9ytqK4ZS1uxuuok9oreLEMloZzwuyFWl2Wh\nE14XnszCoEBZnbJN4rxyzFYRYIV5pjRKB2ESAhlZVdUstIIiCYf4R/v1niXMwna5\nXrCaOdiK3tvfO8C/zcQyznY=\n-----END PRIVATE KEY-----\n",
+  "client_email": "set-crafter-sa@set-crafter.iam.gserviceaccount.com",
+  "client_id": "100038041088372375429",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/set-crafter-sa%40set-crafter.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
