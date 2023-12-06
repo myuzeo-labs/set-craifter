@@ -29,6 +29,10 @@ SetCrafter AI is a project designed to revolutionize the way DJs organize and cu
 
 Run the `setcrafter_ui.py` script from the `src` directory to start the SetCrafter AI application and categorize your DJ library.
 
+## Updates
+
+- **April 2023:** Improved AI classification accuracy and expanded Spotify API integration.
+
 ## Contribution
 
 Contributions are welcome! Please read the CONTRIBUTING.md file for guidelines on how to contribute to the project.
