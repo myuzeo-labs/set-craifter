@@ -3,8 +3,9 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler
 
 # Load the model and scaler from the serialized files
-model = joblib.load('model.joblib')
-scaler = joblib.load('scaler.joblib')
+model = joblib.load("model.joblib")
+scaler = joblib.load("scaler.joblib")
+
 
 def categorize_track(features):
     # Scale the features using the loaded scaler

@@ -11,6 +11,6 @@ spotify_downloader = SpotifyDownloaderWrapper()
 
 # Download a track, playlist, or album
 # For example, to download a track:
-spotify_downloader.download_track('spotify:track:4iV5W9uYEdYUVa79Axb7Rh')
+spotify_downloader.download_track("spotify:track:4iV5W9uYEdYUVa79Axb7Rh")
 
 # Additional code for set_crafter_app functionality goes here

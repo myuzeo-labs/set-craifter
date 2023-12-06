@@ -5,28 +5,28 @@ import librosa
 import numpy as np
 
 # Directory containing the audio files
-audio_files_dir = '/Users/chanceneihouse/myuzo/Spotify Music/001_Database_Telaviv'
+audio_files_dir = "/Users/chanceneihouse/myuzo/Spotify Music/001_Database_Telaviv"
 # CSV file path
-csv_file_path = 'src/data/features.csv'
+csv_file_path = "src/data/features.csv"
 
 # Prepare to write to CSV
-with open(csv_file_path, mode='w', newline='') as csv_file:
+with open(csv_file_path, mode="w", newline="") as csv_file:
     csv_writer = csv.writer(csv_file)
     # Write the header
-    csv_writer.writerow(['track_id', 'feature1', 'feature2', 'feature3'])
+    csv_writer.writerow(["track_id", "feature1", "feature2", "feature3"])
 
     # Process each audio file
     for filename in os.listdir(audio_files_dir):
-        if filename.lower().endswith('.mp3'):
+        if filename.lower().endswith(".mp3"):
             file_path = os.path.join(audio_files_dir, filename)
             # Convert MP3 to WAV using pydub
             try:
                 audio = AudioSegment.from_mp3(file_path)
             except Exception as e:
-                print(f'Error processing file {file_path}: {e}')
+                print(f"Error processing file {file_path}: {e}")
                 continue
-            wav_file_path = os.path.splitext(file_path)[0] + '.wav'
-            audio.export(wav_file_path, format='wav')
+            wav_file_path = os.path.splitext(file_path)[0] + ".wav"
+            audio.export(wav_file_path, format="wav")
             # Load WAV file using librosa
             y, sr = librosa.load(wav_file_path, sr=None)
             # Extract features (example: MFCCs, Chroma, Mel, Contrast, Tonnetz)

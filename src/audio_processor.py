@@ -9,7 +9,7 @@ class AudioProcessor:
         """Converts an MP3 file to WAV format if necessary."""
         audio = AudioSegment.from_file(file_path)
         buffer = io.BytesIO()
-        audio.export(buffer, format='wav')
+        audio.export(buffer, format="wav")
         buffer.seek(0)
         return buffer
 
