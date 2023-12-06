@@ -1,36 +1,14 @@
+import joblib
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import accuracy_score
-import pandas as pd
-from typing import List, Dict
 
+# Load the model and scaler from the serialized files
+model = joblib.load('model.joblib')
+scaler = joblib.load('scaler.joblib')
 
-class TrackCategorizer:
-    def __init__(self):
-        self.model = joblib.load('model.joblib')
-        self.scaler = joblib.load('scaler.joblib')
-
-    def train_model(self, features: pd.DataFrame, target: pd.Series):
-        # Split the data into training and testing sets
-        X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.2, random_state=42)
-        # Scale the features
-        X_train_scaled = self.scaler.fit_transform(X_train)
-        X_test_scaled = self.scaler.transform(X_test)
-        # Train the KNN model
-        self.model.fit(X_train_scaled, y_train)
-        # Evaluate the model using accuracy score
-        y_pred = self.model.predict(X_test_scaled)
-        accuracy = accuracy_score(y_test, y_pred)
-        print(f'Model accuracy: {accuracy:.2f}')
-
-    def categorize_tracks(self, track_data: List[Dict[str, any]]) -> List[str]:
-        # Convert track data to a DataFrame
-        df = pd.DataFrame(track_data)
-        # Select features for categorization
-        features = df[['danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo']]
-        # Scale the features
-        features_scaled = self.scaler.transform(features)
-        # Predict categories
-        categories = self.model.predict(features_scaled)
-        return categories.tolist()
+def categorize_track(features):
+    # Scale the features using the loaded scaler
+    scaled_features = scaler.transform([features])
+    # Predict the category using the loaded model
+    category = model.predict(scaled_features)
+    return category
