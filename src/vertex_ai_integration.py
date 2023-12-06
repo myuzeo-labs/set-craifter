@@ -2,12 +2,9 @@ import os
 from google.cloud import aiplatform
 from google.oauth2 import service_account
 
-# Path to the service account key file
-service_account_key_path = 'set-crafter-sa-key.json'
-
-# Authenticate and create a Vertex AI client
-credentials = service_account.Credentials.from_service_account_file(
-    service_account_key_path
+# Authenticate and create a Vertex AI client using environment variable
+credentials = service_account.Credentials.from_service_account_info(
+    os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
 )
 aiplatform.init(project='set-crafter', location='us-central1', credentials=credentials)
 
@@ -15,35 +12,19 @@ aiplatform.init(project='set-crafter', location='us-central1', credentials=crede
 def create_vertex_ai_dataset(dataset_display_name, gcs_source):
     dataset = aiplatform.TabularDataset.create(
         display_name=dataset_display_name,
-        gcs_source=aiplatform.types.GcsSource(uris=['gs://set_crafter_bucket/features.csv'])
+        gcs_source=aiplatform.types.GcsSource(uris=[gcs_source])
     )
     return dataset
 
 # Function to train a model using Vertex AI
-def train_model_on_vertex_ai(dataset, model_display_name, target_column):
-    training_pipeline = aiplatform.AutoMLTabularTrainingJob(
+def train_model(dataset_id, model_display_name, target_column):
+    job = aiplatform.CustomJob.from_local_script(
+        script_path='train_script.py',
+        container_uri='gcr.io/cloud-aiplatform/training/tf-cpu.2-2:latest',
         display_name=model_display_name,
-        optimization_prediction_type='classification',
-        
+        dataset=dataset_id,
+        model_serving_container_image_uri='gcr.io/cloud-aiplatform/prediction/tf2-cpu.2-2:latest',
+        requirements=['tensorflow>=2.2', 'scikit-learn']
     )
-    model = training_pipeline.run(
-        dataset=dataset,
-        model_display_name=model_display_name,
-        target_column=target_column
-    )
+    model = job.run(sync=True)
     return model
-
-# Function to deploy a model for prediction in Vertex AI
-def deploy_model_on_vertex_ai(model, deployed_model_display_name):
-    endpoint = model.deploy(
-        deployed_model_display_name=deployed_model_display_name
-    )
-    return endpoint
-
-# Train a model using the created Vertex AI dataset
-# Retrieve the created Vertex AI dataset
-dataset = aiplatform.TabularDataset('projects/189973823689/locations/us-central1/datasets/1458666001477402624')
-
-# Train a model using the created Vertex AI dataset
-model = train_model_on_vertex_ai(dataset, 'set_crafter_model', 'target_column_name')
-print(f'Model training started: {model.display_name}')
